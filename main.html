@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TinkHack – TinkerHub MEC</title>
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #0d1b2a;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      cursor: pointer;
+    }
+
+    nav ul li:hover {
+      color: #fca311;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      height: 90vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('assets/images/banner.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero p {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+
+    .hero .btn {
+      padding: 0.7rem 1.5rem;
+      background: #fca311;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #0d1b2a;
+    }
+
+    /* Overview */
+    .overview p {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      padding: 1rem;
+      border-left: 4px solid #fca311;
+      background: #f8f9fa;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 0.5rem;
+      color: #0d1b2a;
+    }
+
+    /* Registration */
+    .registration {
+      text-align: center;
+    }
+
+    .registration .btn {
+      padding: 0.8rem 1.8rem;
+      background: #0d1b2a;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    /* Sponsors */
+    .sponsors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      place-items: center;
+    }
+
+    .sponsors-grid img {
+      width: 120px;
+      object-fit: contain;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0d1b2a;
+      color: white;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ---------- NAV ---------- -->
+  <nav>
+    <div class="logo">TinkHack</div>
+    <ul>
+      <li onclick="scrollToSection('overview')">Overview</li>
+      <li onclick="scrollToSection('timeline')">Timeline</li>
+      <li onclick="scrollToSection('registration')">Registration</li>
+      <li onclick="scrollToSection('sponsors')">Sponsors</li>
+      <li onclick="scrollToSection('contact')">Contact</li>
+    </ul>
+  </nav>
+
+  <!-- ---------- HERO ---------- -->
+  <section class="hero">
+    <h1>Welcome to TinkHack</h1>
+    <p>MEC’s Flagship Hackathon by TinkerHub</p>
+    <button class="btn" onclick="scrollToSection('registration')">Register Now</button>
+  </section>
+
+  <!-- ---------- OVERVIEW ---------- -->
+  <section id="overview" class="overview">
+    <h2>Event Overview</h2>
+    <p>
+      TinkHack is the flagship hackathon of TinkerHub MEC, where innovative minds come together 
+      to solve real-world problems. Collaborate, learn, and build impactful solutions!
+    </p>
+  </section>
+
+  <!-- ---------- TIMELINE ---------- -->
+  <section id="timeline" class="timeline-section">
+    <h2>Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>📌 Registration Opens</h3>
+        <p>October 1, 2025</p>
+      </div>
+      <div class="timeline-item">
+        <h3>📌 Idea Submission</h3>
+        <p>October 15, 2025</p>
+      </div>
+      <div class="timeline-item">
+        <h3>📌 Hackathon Day</h3>
+        <p>November 5–6, 2025</p>
+      </div>
+      <div class="timeline-item">
+        <h3>📌 Finale & Demos</h3>
+        <p>November 7, 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- REGISTRATION ---------- -->
+  <section id="registration" class="registration">
+    <h2>Registration</h2>
+    <p>Join TinkHack now! Click the button below to register.</p>
+    <a href="https://forms.gle/yourformlink" target="_blank" class="btn">Register Here</a>
+  </section>
+
+  <!-- ---------- SPONSORS ---------- -->
+  <section id="sponsors" class="sponsors">
+    <h2>Our Sponsors</h2>
+    <div class="sponsors-grid">
+      <img src="assets/images/sponsor1.png" alt="Sponsor 1" />
+      <img src="assets/images/sponsor2.png" alt="Sponsor 2" />
+      <img src="assets/images/sponsor3.png" alt="Sponsor 3" />
+    </div>
+  </section>
+
+  <!-- ---------- CONTACT ---------- -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: tinkhubmec@gmail.com</p>
+    <p>Instagram: @tinkerhubmec</p>
+    <p>Phone: +91 98765 43210</p>
+  </section>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    <p>© 2025 TinkerHub MEC | Made with ❤️ for TinkHack</p>
+  </footer>
+
+  <!-- ---------- JS ---------- -->
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
