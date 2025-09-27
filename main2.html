@@ -23,9 +23,8 @@
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      color: #f0f4fa;
-      background: linear-gradient(135deg, #0d1b2a, #1b4965, #62b6cb);
-      /* navy blue -> deep blue -> pastel/ocean blue */
+      color: #e0e0e0;
+      background: #8b3e00; /* dark pastel orange */
       min-height: 100vh;
     }
 
@@ -40,13 +39,14 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: rgba(13, 27, 42, 0.9);
-      color: #fff;
+      background: rgba(50, 25, 0, 0.85);
+      color: #e0e0e0;
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(6px);
       box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      transition: background 0.3s ease;
     }
 
     nav .logo {
@@ -54,6 +54,8 @@
       font-weight: bold;
       letter-spacing: 1px;
       font-family: 'Montserrat', sans-serif;
+      color: #ff8fb1;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
     nav ul {
@@ -64,63 +66,91 @@
 
     nav ul li {
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     nav ul li:hover {
-      color: #fca311;
+      color: #b565a7;
+      transform: translateY(-2px);
     }
 
     /* ---------- HERO ---------- */
     .hero {
       height: 90vh;
-      background: linear-gradient(rgba(13,27,42,0.7), rgba(98,182,203,0.7)),
-                  url('assets/images/banner.jpg') center/cover no-repeat;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
       padding: 0 1rem;
       font-family: 'Montserrat', sans-serif;
+      color: #e0e0e0;
+      overflow: hidden;
+      background: url('assets/images/banner.jpg') center/cover no-repeat fixed;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(107,62,15,0.7), rgba(127,82,15,0.7));
+      z-index: 1;
+    }
+
+    .hero h1,
+    .hero p,
+    .hero .btn {
+      position: relative;
+      z-index: 2;
     }
 
     .hero h1 {
       font-size: 3rem;
-      animation: fadeInDown 1.5s ease;
+      animation: fadeInDown 1.5s ease forwards;
+      color: #ff8fb1;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
     .hero p {
       margin: 1rem 0;
       font-size: 1.2rem;
-      animation: fadeInUp 2s ease;
+      animation: fadeInUp 2s ease forwards;
+      color: #e0e0e0;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
     .hero .btn {
       padding: 0.7rem 1.5rem;
-      background: #fca311;
-      color: #000;
+      background: #b565a7;
+      color: #fff;
       font-weight: bold;
       border-radius: 30px;
       cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
-      animation: fadeIn 2.5s ease;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 2.5s ease forwards;
     }
 
     .hero .btn:hover {
       transform: scale(1.1);
-      background: #ffba43;
+      background: #ff8fb1;
+      box-shadow: 0 0 12px #ff8fb1;
     }
 
     /* ---------- SECTIONS ---------- */
     section {
       padding: 4rem 2rem;
       max-width: 1000px;
-      margin: auto;
+      margin: 2rem auto;
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.8s ease, transform 0.8s ease;
+      border-radius: 15px;
+      background: linear-gradient(to right, rgba(139,62,0,0.8), rgba(127,82,15,0.8));
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
     section.visible {
@@ -132,8 +162,9 @@
       text-align: center;
       margin-bottom: 2rem;
       font-size: 2.2rem;
-      color: #fca311;
+      color: #ff8fb1;
       font-family: 'Poppins', sans-serif;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
     /* Overview */
@@ -141,7 +172,16 @@
       text-align: center;
       font-size: 1.1rem;
       font-family: 'Roboto', sans-serif;
-      color: #f0f4fa;
+      color: #e0e0e0;
+      background: linear-gradient(to right, rgba(139,62,0,0.7), rgba(127,82,15,0.7));
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .overview p:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 12px #ff8fb1;
     }
 
     /* Timeline */
@@ -153,39 +193,48 @@
 
     .timeline-item {
       padding: 1rem;
-      border-left: 4px solid #fca311;
-      background: rgba(27, 38, 59, 0.85);
-      border-radius: 5px;
+      border-left: 4px solid #ff8fb1;
+      background: linear-gradient(to right, rgba(127,82,15,0.7), rgba(139,62,0,0.7));
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      color: #e0e0e0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 0 12px #ff8fb1;
     }
 
     .timeline-item h3 {
       margin-bottom: 0.5rem;
-      color: #fca311;
-      font-family: 'Poppins', sans-serif;
+      color: #ff8fb1;
     }
 
     /* Registration */
     .registration {
       text-align: center;
+      padding: 2rem;
     }
 
     .registration p {
-      color: #f0f4fa;
+      color: #e0e0e0;
+      margin-bottom: 1rem;
     }
 
     .registration .btn {
       padding: 0.9rem 2rem;
-      background: #fca311;
-      color: #000;
+      background: #b565a7;
+      color: #fff;
       border-radius: 30px;
       font-size: 1rem;
-      transition: transform 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     }
 
     .registration .btn:hover {
-      background: #ffba43;
+      background: #ff8fb1;
       transform: scale(1.1);
+      box-shadow: 0 0 12px #ff8fb1;
     }
 
     /* Sponsors */
@@ -199,33 +248,41 @@
     .sponsors-grid img {
       width: 120px;
       object-fit: contain;
-      transition: transform 0.3s ease;
-      filter: brightness(0.9);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: brightness(0.8);
+      cursor: pointer;
     }
 
     .sponsors-grid img:hover {
-      transform: scale(1.1);
-      filter: brightness(1.1);
+      transform: scale(1.15);
+      filter: brightness(1.2);
     }
 
     /* Contact */
     .contact {
       text-align: center;
+      padding: 2rem;
     }
 
     .contact p {
       margin: 0.5rem 0;
-      color: #e0f0ff;
+      color: #e0e0e0;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .contact p:hover {
+      transform: translateY(-3px);
+      color: #ff8fb1;
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding: 1rem;
-      background: #0d1b2a;
-      color: white;
+      background: #8b3e00;
+      color: #e0e0e0;
       font-family: 'Roboto', sans-serif;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.6);
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
     }
 
     /* ---------- ANIMATIONS ---------- */
@@ -253,7 +310,6 @@
   </style>
 </head>
 <body>
-  <!-- ---------- NAV ---------- -->
   <nav>
     <div class="logo">TinkHack</div>
     <ul>
@@ -265,23 +321,21 @@
     </ul>
   </nav>
 
-  <!-- ---------- HERO ---------- -->
   <section class="hero">
     <h1>Welcome to TinkHack</h1>
     <p>MEC’s Flagship Hackathon by TinkerHub</p>
     <button class="btn" onclick="scrollToSection('registration')">Register Now</button>
   </section>
 
-  <!-- ---------- OVERVIEW ---------- -->
   <section id="overview" class="overview">
     <h2>Event Overview</h2>
     <p>
-      TinkHack is the flagship hackathon of TinkerHub MEC, where innovative minds come together 
-      to solve real-world problems. Collaborate, learn, and build impactful solutions!
+      TinkHack is Kerala's largest AI-based Hackathon, marking a milestone in the state's AI landscape. 
+      It is an overnight event designed to encourage student expertise and facilitate the exploration of Generative AI. 
+      Collaborate, learn, and build impactful solutions!
     </p>
   </section>
 
-  <!-- ---------- TIMELINE ---------- -->
   <section id="timeline" class="timeline-section">
     <h2>Timeline</h2>
     <div class="timeline">
@@ -304,24 +358,20 @@
     </div>
   </section>
 
-  <!-- ---------- REGISTRATION ---------- -->
   <section id="registration" class="registration">
     <h2>Registration</h2>
     <p>Join TinkHack now! Click the button below to register.</p>
-    <br>
-    <a href="https://forms.gle/yourformlink" target="_blank" class="btn">Register Here</a>
+    <a href="https://forms.gle/SrebXsmsd5MB5LKo8" target="_blank" class="btn">Register Here</a>
   </section>
 
-  <!-- ---------- SPONSORS ---------- -->
   <section id="sponsors" class="sponsors">
     <h2>Our Sponsors</h2>
     <div class="sponsors-grid">
-      <img src="images.png" alt="Sponsor 1" />
+      <img src="google.png" alt="Sponsor 1" />
       <img src="swiggy.png" alt="Sponsor 2" />
     </div>
   </section>
 
-  <!-- ---------- CONTACT ---------- -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p>Email: tinkhubmec@gmail.com</p>
@@ -329,18 +379,15 @@
     <p>Phone: +91 98765 43210</p>
   </section>
 
-  <!-- ---------- FOOTER ---------- -->
   <footer>
     <p>© 2025 TinkerHub MEC | Made with ❤️ for TinkHack</p>
   </footer>
 
-  <!-- ---------- JS ---------- -->
   <script>
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Intersection Observer for animations
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
