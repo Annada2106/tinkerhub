@@ -26,7 +26,4 @@ The page provides an interactive, modern, and dark-themed interface with animati
 
 ---
 
-## Setup Instructions
-1. Clone the repository or download the files.
-   ```bash
-   git clone <repository-url>
+
